@@ -1,0 +1,117 @@
+>>> nums=[0,1,2,3,4,5,6,7,8,9]
+>>> nums
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> nums.insert(0,21)
+>>> nums
+[21, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> nums.append(31)
+>>> nums
+[21, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 31]
+>>> nums2=[11,12,13,14]
+>>> nums+nums2
+[21, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 31, 11, 12, 13, 14]
+>>> nums
+[21, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 31]
+>>> nums.extend(nums2)
+>>> nums
+[21, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 31, 11, 12, 13, 14]
+>>> del nums[-1]
+>>> nums
+[21, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 31, 11, 12, 13]
+>>> nums.remove(21)
+>>> nums
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 31, 11, 12, 13]
+>>> aa=nums.pop()
+>>> nums
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 31, 11, 12]
+>>> aa
+13
+>>> bb=nums.remove(31)
+>>> nums
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12]
+>>> bb
+>>> print(bb)
+None
+>>> cc = nums.pop(-2)
+>>> cc
+11
+>>> nums
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 12]
+>>> nums2
+[11, 12, 13, 14]
+>>> nums2.clear()
+>>> nums2
+[]
+>>> len(nums)
+11
+>>> len(nums2)
+0
+>>> nums.count(8)
+1
+>>> nums
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 12]
+>>> nums.insert(5,49)
+>>> nums
+[0, 1, 2, 3, 4, 49, 5, 6, 7, 8, 9, 12]
+>>> nums.sort()
+>>> nums
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 49]
+>>> nums.sort(reverse=True)
+>>> nums
+[49, 12, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+>>> nbak = nums.copy()
+>>> nbak
+[49, 12, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+>>> nums.reverse()
+>>> nums
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 49]
+>>> nbak
+[49, 12, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+>>> 
+>>> n=2
+>>> n
+2
+>>> del n
+>>> n
+Traceback (most recent call last):
+  File "<pyshell#46>", line 1, in <module>
+    n
+NameError: name 'n' is not defined
+>>> 
+>>> m=2
+>>> id(m)
+266761376
+>>> id(nums)
+30109488
+>>> id(nbak)
+30119016
+>>> nn = nums
+>>> id(nn)
+30109488
+>>> id(nums)
+30109488
+>>> nn is nums
+True
+>>> nbak is nums
+False
+>>> nmbak = nums.copy()
+>>> id(nmbak)
+39439536
+>>> nmbak is nums
+False
+>>> x=2
+>>> m is x
+True
+>>> m
+2
+>>> id(x)
+266761376
+>>> id(m)
+266761376
+>>> 
+>>> import keyword
+>>> print(keyword.kwlist)
+['False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
+>>> print(len(keyword.kwlist))
+35
+>>> 

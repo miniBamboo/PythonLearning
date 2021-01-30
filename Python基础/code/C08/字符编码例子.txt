@@ -1,0 +1,12 @@
+>>> cn='ÕÅÈý'
+>>> cn.encode()
+b'\xe5\xbc\xa0\xe4\xb8\x89'
+>>> cn.encode('gb2312')
+b'\xd5\xc5\xc8\xfd'
+>>> 
+>>> ord('³Â')
+38472
+>>> chr(38472)
+'³Â'
+>>> ord('1')
+49

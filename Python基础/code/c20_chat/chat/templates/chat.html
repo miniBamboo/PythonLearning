@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>聊天室</title>
+</head>
+<body>
+	<p>你的名字：<input type="text" id="username">
+    <button onclick="open_ws()">登陆聊天室</button>
+	</p>
+	<form onsubmit="return false;">
+		<h3>WebSocket 聊天室：</h3>
+		<textarea id="responseText" style="width: 500px; height: 300px;"></textarea>
+		<br>
+		给：<input type="text" id="to_user">消息内容：<input type="text" id="message">
+		<input type="button" value="发送消息" onclick="send_msg()">
+		<input type="button" onclick="javascript:document.getElementById('responseText').value=''"
+			   value="清空聊天记录">
+	</form>
+	<script type="application/javascript">
+    var ws = null;
+    function open_ws() {
+        var username = document.getElementById('username').value;
+        ws = new WebSocket("ws://127.0.0.1:8088/chat/ws/" + username);
+        ws.onopen = function () {
+			ws.send("在线用户"); //向后台请求在线用户
+            alert("登陆成功");			
+        };
+
+        ws.onmessage = function (eventMessage) {
+            // 显示消息记录
+            var chat = JSON.parse(eventMessage.data);
+            console.log(chat);
+			if(chat.to_user == "在线用户"){ //返回在线用户列表
+				var chat_content = document.getElementById('responseText');
+				chat_content.value = chat_content.value + "\n在线用户: " + chat.chat;
+			}else{ //返回正常消息
+				var chat_content = document.getElementById('responseText');
+				chat_content.value = chat_content.value + "\n" + chat.from_user + " >> "+ chat.to_user + " : " + chat.chat;  //显示收到的消息
+			}
+        };
+    }
+
+    function send_msg() {
+        // 发送消息
+        var to_user = document.getElementById("to_user").value;
+        var msg = document.getElementById("message").value;
+		var username = document.getElementById('username').value;
+        var send_str = { //创建消息字典
+			from_user: username,
+            to_user: to_user,
+            chat: msg
+        };
+        ws.send(JSON.stringify(send_str));
+        var chat_content = document.getElementById("responseText");
+        chat_content.value = chat_content.value + "\n" + "我： " + msg;
+    }
+</script>	
+	
+</body>
+</html>

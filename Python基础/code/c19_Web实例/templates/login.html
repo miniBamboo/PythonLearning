@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+	<link rel="stylesheet" href="static/css/login_reglogin.css">
+    <title>登录</title>
+</head>
+<body>
+	<div class="bg">
+		<img src="static/images/b.jpg" alt="">
+	</div>
+	<div class="main">
+		<div class="header" >
+			<h1>登录!</h1>
+		</div>
+		<p></p>
+		<form action="" method="post">
+			<ul class="right-form">
+				<h2>登录:</h2>
+				<li><input type="text" name="username" placeholder="电话号码" required/></li>
+				<li><input type="password" name="password" placeholder="密码" required/></li>
+				
+				{% if error %}
+                    <span style="color: red; font-weight: bold; margin: 0 28px">
+                    {{ error }}
+                    </span>
+                {% endif %}				
+				<p></p>
+				<input type="submit" value="登录" >
+				<div class="clear"> </div>
+			</ul>
+			<div class="clear"> </div>
+		</form>
+	</div>
+</body>
+</html>

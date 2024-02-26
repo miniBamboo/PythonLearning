@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!--<link rel="stylesheet" href="static/css/login_reglogin.css">-->
+    <title>资讯列表</title>
+</head>
+<body>
+	<div id="main_menu">
+            <div id="top">
+                <h2>资讯列表</h2>
+            </div>
+            <div id="menu">
+                <table width="100%" align="center" style="border-bottom: 1px solid #ccc" >
+                    <tr>
+                        <th>题目</th>
+                        <th>摘要</th>
+                        <th>图片url</th>
+                        <!--<th>资讯内容</th>-->
+                        <th>来源</th>
+                        <th>上传时间</th>
+                        <th>阅读次数</th>						
+                        <th>详情</th>
+                    </tr>
+                    {% for news in cates.newses %}
+                        <tr>
+                            <th style="padding-left: 20px">{{ news.title }}</th>
+                            <th>{{ news.digest }}</th>
+                            <th>{{ news.imgsrc }}</th>
+                            <!--<th>{{ news.content }}</th>-->
+                            <th>{{ news.froms }}</th>
+                            <th>{{ news.datetime }}</th>
+                            <th>{{ news.readcount }}</th>
+							<th>
+								<form action="/admin/news/detail" method="post">
+									<input type="hidden" name="newsid" value="{{ news.news_id }}">
+									<input type="submit" value="详情" >
+								</form>
+							</th>
+                        </tr>
+					{% endfor %}
+                </table>			
+				<p></p>				
+				{% if error %}
+                    <span style="color: red; font-weight: bold; margin: 0 28px">
+                    {{ error }}
+                    </span>
+                {% endif %}				
+				<p></p>		
+				<a href="/admin/index">
+					<div id="index-button">返回主页</div>
+				</a>
+            </div>
+    </div>
+</body>
+</html>

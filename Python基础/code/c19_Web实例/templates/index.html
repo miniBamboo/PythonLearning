@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>主页</title>
+</head>
+<body>
+	<div class="tea-bg">
+		<div class="main-2">
+			<div id="login-button-box">
+                <a style="font-size:38px;" href="/admin/news/admin">
+                    <div id="newsadd-button">添加新闻</div>
+                </a>
+				<a style="font-size:38px;" href="/admin/news/get">
+                    <div id="newsget-button">查看新闻</div>
+				</a>	
+				<a style="font-size:38px;" href="/admin/user/get">
+                    <div id="user-button">查看用户</div>
+				</a>
+				<a style="font-size:38px;" href="/admin/logs/get">
+                    <div id="logs-button">查看日志</div>
+				</a>			
+				<p></p>
+				{% if error %}
+                    <span style="color: red; font-weight: bold; margin: 0 28px">
+                    {{ error }}
+                    </span>
+                {% endif %}			
+				<p></p>
+				<a style="font-size:38px;" href="/admin/logout">[注销]</a>
+	        </div>
+	    </div>
+    </div>
+</body>
+</html>

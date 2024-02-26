@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+	<!--<link rel="stylesheet" href="static/css/login_reglogin.css">-->
+    <title>添加资讯</title>
+</head>
+<body>
+	<div class="main">
+		<div class="header" >
+			<h1>添加资讯</h1>
+		</div>
+		<p></p>
+		<form action="" method="post">
+			<ul class="right-form">
+				<h2>添加资讯:</h2>
+				<li><input type="text" name="title" size="64" placeholder="题目" required/></li>
+				<li><input type="text" name="digest" size="128" placeholder="摘要" required/></li>
+				<li><input type="text" name="imgsrc" size="128"  placeholder="图片url" /></li>
+				<li><textarea name="content" placeholder="资讯内容"  rows="10" cols="64" required></textarea>
+				</li>
+				<li><input type="text" name="froms" placeholder="来源" required/></li>			
+				<p></p>				
+				{% if error %}
+                    <span style="color: red; font-weight: bold; margin: 0 28px">
+                    {{ error }}
+                    </span>
+                {% endif %}
+				<p></p>	
+				<input type="submit" value="添加资讯" >
+				<div class="clear"> </div>
+			</ul>
+			<div class="index">			
+				<p></p>		
+				<a href="/admin/index">
+					<div id="index-button">返回主页</div>
+				</a>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

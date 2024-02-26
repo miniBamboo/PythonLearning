@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!--<link rel="stylesheet" href="static/css/login_reglogin.css">-->
+    <title>用户列表</title>
+</head>
+<body>
+	<div id="main_menu">
+            <div id="top">
+                <h2>用户列表</h2>
+            </div>
+            <div id="menu">
+                <table width="100%" align="center" style="border-bottom: 1px solid #ccc" >
+                    <tr>
+                        <th>电话</th>
+                        <th>登录次数(天)</th>
+                        <th>更新时间</th>
+                        <th>注册时间</th>
+                    </tr>
+                    {% for user in cates.users %}
+                        <tr>
+                            <th style="padding-left: 20px">{{ user.phone }}</th>
+                            <th>{{ user.logintimes }}</th>
+                            <th>{{ user.updatetime }}</th>
+                            <th>{{ user.registtime }}</th>
+                        </tr>
+					{% endfor %}
+                </table>			
+				<p></p>				
+				{% if error %}
+                    <span style="color: red; font-weight: bold; margin: 0 28px">
+                    {{ error }}
+                    </span>
+                {% endif %}								
+				<p></p>		
+				<a href="/admin/index">
+					<div id="index-button">返回主页</div>
+				</a>
+            </div>
+    </div>
+</body>
+</html>

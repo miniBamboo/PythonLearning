@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>日志</title>
+</head>
+<body>
+	<div class="index">
+		<div class="index-2">
+			<div id="index-box">		
+				<p></p>
+				{% if logs %}
+				{% for log in logs %}
+					<!--<span style="color: blue; font-weight: bold; margin: 0 28px">-->
+						{{ log }}<br>
+                    <!--</span>-->
+				{% endfor %}
+				{% endif %}
+				<a href="/admin/logs/get">[刷新]</a>			
+				<p></p>
+				{% if error %}
+                    <span style="color: red; font-weight: bold; margin: 0 28px">
+                    {{ error }}
+                    </span>
+                {% endif %}		
+				<p></p>
+                <!--<a href="/admin/news/admin">
+                    <div id="news-button">添加新闻</div>
+                </a>
+				<a href="/admin/news/get">
+                    <div id="newsget-button">查看新闻</div>
+				</a>	
+				<a href="/admin/user/get">
+                    <div id="user-button">查看用户</div>
+				</a>-->
+				<a href="/admin/index">[返回主页]</a>
+	        </div>
+	    </div>
+    </div>
+</body>
+</html>

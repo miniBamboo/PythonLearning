@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+	<!--<link rel="stylesheet" href="static/css/login_reglogin.css">-->
+    <title>资讯详情</title>
+</head>
+<body>
+	<div class="main">
+		<div class="header" >
+			<h1>资讯详情</h1>
+		</div>
+		<p></p>
+		<ul class="right-form">
+			<h2>资讯详情:</h2>
+				<li>{{ news.title }}</li>
+				<li>{{ news.digest }}</li>
+				<li>{{ news.imgsrc }}</li>
+				<li>{{ news.content }}</li>
+				<li>{{ news.froms }}</li>
+				<li>{{ news.datetime }}</li>
+				<li>{{ news.readcount }}</li>
+			<p></p>					
+			{% if error %}
+				<span style="color: red; font-weight: bold; margin: 0 28px">
+				{{ error }}
+				</span>
+			{% endif %}				
+			<p></p>					
+			<div class="clear">
+				<form action="/admin/news/del" method="post">
+					<input type="hidden" name="newsid" value="{{ news.news_id }}">
+					<input type="submit" value="删除" >
+				</form>
+			</div>			
+			<p></p>		
+			<a href="/admin/index">
+				<div id="index-button">返回主页</div>
+			</a>
+		</ul>
+	</div>
+</body>
+</html>
